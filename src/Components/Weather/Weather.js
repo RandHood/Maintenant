@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-const weatherAPI = '49f5f1b2aa04f7d7e6436cbe2ed83bfc';
+const weatherProvider = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const weatherAPIKey = '49f5f1b2aa04f7d7e6436cbe2ed83bfc';
+const weatherAPI = '&APPID=' + weatherAPIKey;
 
 class Weather extends Component {
     constructor() {
@@ -16,7 +18,11 @@ class Weather extends Component {
     }
 
     getWeather = async () => {
-        const APICall = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Cairo&APPID=' + weatherAPI + '&units=metric');
+        const city = this.props.city === undefined ? 'Cairo' : this.props.units;
+        const units = this.props.units === undefined ? 'metric' : this.props.units;
+        const weatherURL = weatherProvider + city + weatherAPI + '&units=' + units;
+
+        const APICall = await fetch(weatherURL);
         const response = await APICall.json();
         console.log(response);
     }
