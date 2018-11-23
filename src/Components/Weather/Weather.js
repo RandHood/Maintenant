@@ -5,6 +5,7 @@ const weatherProvider = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const weatherAPIKey = '49f5f1b2aa04f7d7e6436cbe2ed83bfc';
 const weatherAPI = '&APPID=' + weatherAPIKey;
 
+let data;
 class Weather extends Component {
     constructor() {
         super();
@@ -17,8 +18,13 @@ class Weather extends Component {
             humidity: undefined,
             windSpeed: undefined,
             icon: undefined,
+            response: undefined,
         };
         this.saveFetchedData = this.saveFetchedData.bind(this);
+    }
+
+    componentDidMount() {
+        this.getWeather();
     }
 
     getWeather = async () => {
@@ -46,7 +52,6 @@ class Weather extends Component {
     }
 
     render() {
-        this.getWeather();
         return(
             <div id="opacity">   
                 <h1>{ this.state.temperature }</h1>
