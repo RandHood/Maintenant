@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Weather.css';
 
 const weatherProvider = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const weatherAPIKey = '49f5f1b2aa04f7d7e6436cbe2ed83bfc';
@@ -8,13 +9,16 @@ class Weather extends Component {
     constructor() {
         super();
         this.state = {
+            city: undefined,
+            country: undefined,
             temperature: undefined,
             description: undefined,
             pressure: undefined,
             humidity: undefined,
-            city: undefined,
-            country: undefined,
+            windSpeed: undefined,
+            icon: undefined,
         };
+        this.saveFetchedData = this.saveFetchedData.bind(this);
     }
 
     getWeather = async () => {
@@ -25,13 +29,27 @@ class Weather extends Component {
         const APICall = await fetch(weatherURL);
         const response = await APICall.json();
         console.log(response);
+        this.saveFetchedData(response);
+    }
+
+    saveFetchedData(response) {
+        this.setState({
+            temperature: Math.floor(response.main.temp),
+            city: response.name,
+            country: response.sys.country,
+            description: response.weather[0].description,
+            pressure: response.main.pressure,
+            humidity: response.main.humidity,
+            windSpeed: response.wind.speed,
+            icon: response.weather[0].icon,
+        });
     }
 
     render() {
         this.getWeather();
         return(
-            <div>   
-                <h1>Hello</h1>
+            <div id="opacity">   
+                <h1>{ this.state.temperature }</h1>
             </div>
         );
     }
