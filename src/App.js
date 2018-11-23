@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Homepage from './Homepage/Homepage';
-
 class App extends Component {
   render() {
     return (
@@ -8,6 +7,7 @@ class App extends Component {
         <div>
           <Homepage />
         </div>
+
       </div>
     );
   }
