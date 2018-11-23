@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Weather from './../Weather/Weather';
+import News from './../News/News';
 import './Homepage.css';
 
 class Homepage extends Component {
@@ -7,7 +7,8 @@ class Homepage extends Component {
       return (
         <div id="background">
             {/* <h1>This is our new Homepage</h1> */}
-            <Weather />
+            <News />
+            
         </div>
       );
     }
