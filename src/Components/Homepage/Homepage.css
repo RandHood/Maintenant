@@ -38,5 +38,6 @@ body {
 #welcomeText {
     position: relative;
     text-align: center;
-    top: 70%;
+    top: 40%;
+    font-size: 400%; 
 }

@@ -63,11 +63,9 @@ class Weather extends Component {
     }
 
     getWeather = async () => {
-        const city = this.props.city === undefined ? 'Cairo' : this.props.units;
-        const units = this.props.units === undefined ? 'metric' : this.props.units;
         
-        const currentWeatherURL = weatherProvider + '/weather?q=' + city + weatherAPI + '&units=' + units;
-        const forecastURL = weatherProvider + '/forecast?q=' + city + weatherAPI + '&units=' + units;
+        const currentWeatherURL = weatherProvider + '/weather?q=' + this.props.city + ',' + this.props.country + weatherAPI + '&units=' + this.props.units;
+        const forecastURL = weatherProvider + '/forecast?q=' + this.props.city + weatherAPI + '&units=' + this.props.units;
 
         const currentAPICall = await fetch(currentWeatherURL);
         const forecastAPICall = await fetch(forecastURL);
@@ -78,13 +76,11 @@ class Weather extends Component {
         this.saveFetchedData(currentResponse, forecastResponse);
 
         // console.log(currentResponse);
-        console.log(forecastResponse);
+        // console.log(forecastResponse);
     }
 
     saveFetchedData(currentResponse, forecastResponse) {
         this.setState({
-            city: currentResponse.name,
-            country: currentResponse.sys.country,
             current: {
                 date: new Date(),
                 temperature: Math.floor(currentResponse.main.temp),
@@ -128,6 +124,7 @@ class Weather extends Component {
                 icon: forecastResponse.list[32].weather[0].icon,
             }],
         });
+
         console.log(this.state);
         // console.log((new Date().getDate()));
         console.log(getDayName(new Date()));
