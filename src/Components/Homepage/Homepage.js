@@ -6,8 +6,12 @@ class Homepage extends Component {
     render() {
       return (
         <div id="background">
-            {/* <h1>This is our new Homepage</h1> */}
-            <Weather />
+          <div id="top">
+            <h1 id="welcomeText">Good Morning</h1>
+          </div>
+          <div id="bottom">
+              <Weather />
+          </div>
         </div>
       );
     }

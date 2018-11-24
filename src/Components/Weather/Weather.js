@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { getDayName, getMonthName } from './../Util/DateHelper';
 import './Weather.css';
 
 const weatherProvider = 'http://api.openweathermap.org/data/2.5';
 const weatherAPIKey = '49f5f1b2aa04f7d7e6436cbe2ed83bfc';
 const weatherAPI = '&APPID=' + weatherAPIKey;
 
-let data;
 class Weather extends Component {
     constructor() {
         super();
@@ -13,6 +13,7 @@ class Weather extends Component {
             city: undefined,
             country: undefined,
             current: {
+                date: undefined,
                 temperature: undefined,
                 description: undefined,
                 pressure: undefined,
@@ -21,6 +22,7 @@ class Weather extends Component {
                 icon: undefined,
             },
             forecast: [{
+                    date: undefined,
                     temperature: undefined,
                     description: undefined,
                     pressure: undefined,
@@ -28,6 +30,7 @@ class Weather extends Component {
                     windSpeed: undefined,
                     icon: undefined,
                 }, {
+                    date: undefined,
                     temperature: undefined,
                     description: undefined,
                     pressure: undefined,
@@ -35,6 +38,7 @@ class Weather extends Component {
                     windSpeed: undefined,
                     icon: undefined,
                 }, {
+                    date: undefined,
                     temperature: undefined,
                     description: undefined,
                     pressure: undefined,
@@ -42,6 +46,7 @@ class Weather extends Component {
                     windSpeed: undefined,
                     icon: undefined,
                 }, {
+                    date: undefined,
                     temperature: undefined,
                     description: undefined,
                     pressure: undefined,
@@ -73,7 +78,7 @@ class Weather extends Component {
         this.saveFetchedData(currentResponse, forecastResponse);
 
         // console.log(currentResponse);
-        // console.log(forecastResponse);
+        console.log(forecastResponse);
     }
 
     saveFetchedData(currentResponse, forecastResponse) {
@@ -81,6 +86,7 @@ class Weather extends Component {
             city: currentResponse.name,
             country: currentResponse.sys.country,
             current: {
+                date: new Date(),
                 temperature: Math.floor(currentResponse.main.temp),
                 description: currentResponse.weather[0].main,
                 pressure: currentResponse.main.pressure,
@@ -89,36 +95,43 @@ class Weather extends Component {
                 icon: currentResponse.weather[0].icon,
             },
             forecast: [{
-                temperature: Math.floor(forecastResponse.list[10].main.temp),
-                description: forecastResponse.list[10].weather[0].main,
-                pressure: forecastResponse.list[10].main.pressure,
-                humidity: forecastResponse.list[10].main.humidity,
-                windSpeed: forecastResponse.list[10].wind.speed,
-                icon: forecastResponse.list[10].weather[0].icon,
+                date: new Date(forecastResponse.list[8].dt_txt),
+                temperature: Math.floor(forecastResponse.list[8].main.temp),
+                description: forecastResponse.list[8].weather[0].main,
+                pressure: forecastResponse.list[8].main.pressure,
+                humidity: forecastResponse.list[8].main.humidity,
+                windSpeed: forecastResponse.list[8].wind.speed,
+                icon: forecastResponse.list[8].weather[0].icon,
             }, {
-                temperature: Math.floor(forecastResponse.list[18].main.temp),
-                description: forecastResponse.list[18].weather[0].main,
-                pressure: forecastResponse.list[18].main.pressure,
-                humidity: forecastResponse.list[18].main.humidity,
-                windSpeed: forecastResponse.list[18].wind.speed,
-                icon: forecastResponse.list[18].weather[0].icon,
+                date: new Date(forecastResponse.list[16].dt_txt),
+                temperature: Math.floor(forecastResponse.list[16].main.temp),
+                description: forecastResponse.list[16].weather[0].main,
+                pressure: forecastResponse.list[16].main.pressure,
+                humidity: forecastResponse.list[16].main.humidity,
+                windSpeed: forecastResponse.list[16].wind.speed,
+                icon: forecastResponse.list[16].weather[0].icon,
             }, {
-                temperature: Math.floor(forecastResponse.list[26].main.temp),
-                description: forecastResponse.list[26].weather[0].main,
-                pressure: forecastResponse.list[26].main.pressure,
-                humidity: forecastResponse.list[26].main.humidity,
-                windSpeed: forecastResponse.list[26].wind.speed,
-                icon: forecastResponse.list[26].weather[0].icon,
+                date: new Date(forecastResponse.list[24].dt_txt),
+                temperature: Math.floor(forecastResponse.list[24].main.temp),
+                description: forecastResponse.list[24].weather[0].main,
+                pressure: forecastResponse.list[24].main.pressure,
+                humidity: forecastResponse.list[24].main.humidity,
+                windSpeed: forecastResponse.list[24].wind.speed,
+                icon: forecastResponse.list[24].weather[0].icon,
             }, {
-                temperature: Math.floor(forecastResponse.list[34].main.temp),
-                description: forecastResponse.list[34].weather[0].main,
-                pressure: forecastResponse.list[34].main.pressure,
-                humidity: forecastResponse.list[34].main.humidity,
-                windSpeed: forecastResponse.list[34].wind.speed,
-                icon: forecastResponse.list[34].weather[0].icon,
+                date: new Date(forecastResponse.list[32].dt_txt),
+                temperature: Math.floor(forecastResponse.list[32].main.temp),
+                description: forecastResponse.list[32].weather[0].main,
+                pressure: forecastResponse.list[32].main.pressure,
+                humidity: forecastResponse.list[32].main.humidity,
+                windSpeed: forecastResponse.list[32].wind.speed,
+                icon: forecastResponse.list[32].weather[0].icon,
             }],
         });
         console.log(this.state);
+        // console.log((new Date().getDate()));
+        console.log(getDayName(new Date()));
+        console.log(getMonthName(new Date()));
     }
 
     render() {
