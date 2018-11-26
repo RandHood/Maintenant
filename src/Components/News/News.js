@@ -7,16 +7,16 @@ class News extends Component {
     constructor() {
         super();
         this.state = {
-            data: null
+            articles: [],
         };
     }
 
     getNews = async () => {
-        const APICall = await fetch('https://newsapi.org/v2/top-headlines?' +
-        'country=us&' +
-        'apiKey=' + APIKEY);
+        const APICall = await fetch('https://newsapi.org/v2/top-headlines?sources=cnn' +
+        '&apiKey=' + APIKEY);
         const response = await APICall.json();
         console.log(response);
+         
     }
 
     render() {
