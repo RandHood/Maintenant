@@ -9,21 +9,43 @@ class Homepage extends Component {
         city: undefined,
         country: undefined,
         units: undefined,
+        component: undefined,
       };
+      this.displayWeather = this.displayWeather.bind(this);
+    }
+
+    componentDidMount() {
+      this.setState({
+        city: 'Cairo',
+        country: 'EG',
+        units: 'metric',
+        component: <Weather city={'Cairo'} country={'EG'} units={'metric'} />,
+      });
+    }
+
+    displayWeather() {
+      this.setState({
+        component: <Weather city={this.state.city} country={this.state.country} units={this.state.units} />
+      });
+    }
+
+    displayNews() {
+
     }
 
     render() {
-      const city = this.state.city === undefined ? 'Cairo' : this.state.city;
-      const country = this.state.country === undefined ? 'EG' : this.state.country;
-      const units = this.state.units === undefined ? 'metric' : this.state.units;
       return (
         <div id="background">
           <div id="top">
-            <h1>{country}</h1>
+            <h1>{this.state.country}</h1>
             <h1 id="welcomeText">Good Morning</h1>
           </div>
+          <div>
+            <button onClick={this.displayWeather}>Weather</button>
+            <button onClick={this.displayNews}>News</button>
+          </div>
           <div id="bottom">
-              <Weather city={city} country={country} units={units}/>
+              {this.state.component}
           </div>
         </div>
       );
