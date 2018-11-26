@@ -10,8 +10,6 @@ class Weather extends Component {
     constructor() {
         super();
         this.state = {
-            city: undefined,
-            country: undefined,
             current: {
                 date: undefined,
                 temperature: undefined,
