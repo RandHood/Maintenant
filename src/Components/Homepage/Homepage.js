@@ -10,8 +10,10 @@ class Homepage extends Component {
         country: undefined,
         units: undefined,
         component: undefined,
+        display: undefined,
       };
       this.displayWeather = this.displayWeather.bind(this);
+      this.displayNews = this.displayNews.bind(this);
     }
 
     componentDidMount() {
@@ -20,29 +22,61 @@ class Homepage extends Component {
         country: 'EG',
         units: 'metric',
         component: <Weather city={'Cairo'} country={'EG'} units={'metric'} />,
+        display: 'weather',
       });
     }
 
     displayWeather() {
       this.setState({
-        component: <Weather city={this.state.city} country={this.state.country} units={this.state.units} />
+        component: <Weather city={this.state.city} country={this.state.country} units={this.state.units} />,
+        display: 'weather',
       });
     }
 
     displayNews() {
-
+      this.setState({
+        component: <h1>news</h1>,
+        display: 'news',
+      });
     }
 
     render() {
+      const hours = new Date().getHours();
+      let mins = new Date().getMinutes();
+      mins = mins <= 9 ? '0' + mins : mins;
+      
+      let welcomeText;
+      if (hours >= 4 && hours <= 11)
+        welcomeText = 'Good Morning';
+      else if (hours >= 12 && hours <= 21)
+        welcomeText = 'Good Evening';
+      else
+        welcomeText = 'Good Night';
+
+      let weatherButtonClass, newsButtonClass;
+      if (this.state.display === 'weather') {
+        weatherButtonClass = 'tabClicked';
+        newsButtonClass = 'tab';
+      } else {
+        weatherButtonClass = 'tab';
+        newsButtonClass = 'tabClicked';
+      }
+
       return (
         <div id="background">
           <div id="top">
-            <h1>{this.state.country}</h1>
-            <h1 id="welcomeText">Good Morning</h1>
+            <div id="location">
+              <span id="city">{this.state.city}</span>
+              <span id="country"> | {this.state.country}</span>
+            </div>
+            <div id="welcome">
+              <h1 id="welcomeText">{welcomeText}</h1>
+              <h1 id="welcomeTime">{hours}:{mins}</h1>
+            </div>
           </div>
-          <div>
-            <button onClick={this.displayWeather}>Weather</button>
-            <button onClick={this.displayNews}>News</button>
+          <div id ="tabs">
+            <button class={weatherButtonClass} id="weatherTab" onClick={this.displayWeather}>Weather</button>
+            <button class={newsButtonClass} id="newsTab" onClick={this.displayNews}>News</button>
           </div>
           <div id="bottom">
               {this.state.component}
