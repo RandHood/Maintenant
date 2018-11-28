@@ -65,10 +65,10 @@ class Homepage extends Component {
       return (
         <div id="background">
           <div id="top">
-            <div id="location">
+            <button id="location">
               <span id="city">{this.state.city}</span>
               <span id="country"> | {this.state.country}</span>
-            </div>
+            </button>
             <div id="welcome">
               <h1 id="welcomeText">{welcomeText}</h1>
               <h1 id="welcomeTime">{hours}:{mins}</h1>

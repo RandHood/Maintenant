@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: 'Open Sans - Italic';
+    src: url('./../../assets/fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
     font-family: 'Open Sans - Light';
     src: url('./../../assets/fonts/OpenSans/OpenSans-Light.ttf');
 }
@@ -35,6 +40,7 @@ button {
 }
 
 .tab, .tabClicked {
+    font-family: 'Open Sans - Semi Bold';
     height: 100%;
     width: 30%;
     background-color: transparent;
@@ -116,7 +122,14 @@ button {
     position: absolute;
     top: 2%;
     left: 2%;
+    color: white;
     /* background-color: brown; */
+}
+
+#location:hover {
+    background-color :rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
+    border-width: 1px;
 }
 
 #city {
