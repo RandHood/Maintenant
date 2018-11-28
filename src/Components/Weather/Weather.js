@@ -132,7 +132,7 @@ class Weather extends Component {
     render() {
         return(
             <div id="opacity">   
-                <h1>{ this.state.current.temperature }</h1>
+                <h1>{ this.state.current.temperature }&deg;</h1>
             </div>
         );
     }
