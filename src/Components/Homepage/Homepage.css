@@ -39,6 +39,15 @@ button {
     border-width: 0;
 }
 
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .tab, .tabClicked {
     font-family: 'Open Sans - Semi Bold';
     height: 100%;

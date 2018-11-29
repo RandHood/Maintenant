@@ -11,6 +11,7 @@ class Homepage extends Component {
         units: undefined,
         component: undefined,
         display: undefined,
+        time: undefined,
       };
       this.displayWeather = this.displayWeather.bind(this);
       this.displayNews = this.displayNews.bind(this);
@@ -24,6 +25,7 @@ class Homepage extends Component {
         component: <Weather city={'Cairo'} country={'EG'} units={'metric'} />,
         display: 'weather',
       });
+      setInterval(() => this.setState({ time: Date.now()}), 10000);
     }
 
     displayWeather() {
@@ -62,8 +64,9 @@ class Homepage extends Component {
         newsButtonClass = 'tabClicked';
       }
 
+      // The whole page is in a class .unselected; which doesn't allow selecting any text.
       return (
-        <div id="background">
+        <div class="unselectable" id="background">
           <div id="top">
             <div id="location">
               <span id="city">{this.state.city}</span>
