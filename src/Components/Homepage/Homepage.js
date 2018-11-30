@@ -66,7 +66,7 @@ class Homepage extends Component {
 
       // The whole page is in a css class .unselected; which doesn't allow selecting any text.
       return (
-        <div class="unselectable" id="background">
+        <div className="unselectable" id="background">
           <div id="top">
             <div id="location">
               <span id="city">{this.state.city}</span>
@@ -78,8 +78,8 @@ class Homepage extends Component {
             </div>
           </div>
           <div id ="tabs">
-            <button class={weatherButtonClass} id="weatherTab" onClick={this.displayWeather}>Weather</button>
-            <button class={newsButtonClass} id="newsTab" onClick={this.displayNews}>News</button>
+            <button className={weatherButtonClass} id="weatherTab" onClick={this.displayWeather}>Weather</button>
+            <button className={newsButtonClass} id="newsTab" onClick={this.displayNews}>News</button>
           </div>
           <div id="bottom">
               {this.state.component}

@@ -112,8 +112,22 @@ class Weather extends Component {
 
     render() {
         return(
-            <div id="opacity">   
-                <h1>{ this.state.current.temperature }&deg;</h1>
+            <div className="container">
+                <div id="day-1">
+                    <h1>{ this.state.current.temperature }&deg;</h1>
+                </div>
+                <div className="followingDay">
+                    <h1>day2</h1>
+                </div>
+                <div className="followingDay">
+                    <h1>day3</h1>
+                </div>
+                <div className="followingDay">
+                    <h1>day4</h1>
+                </div>
+                <div className="followingDay">
+                    <h1>day5</h1>
+                </div>
             </div>
         );
     }
