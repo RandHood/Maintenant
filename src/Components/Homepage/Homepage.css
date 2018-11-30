@@ -4,18 +4,66 @@
 }
 
 @font-face {
+    font-family: 'Open Sans - Italic';
+    src: url('./../../assets/fonts/OpenSans/OpenSans-Italic.ttf');
+}
+
+@font-face {
     font-family: 'Open Sans - Light';
     src: url('./../../assets/fonts/OpenSans/OpenSans-Light.ttf');
 }
 
+@font-face {
+    font-family: 'Open Sans - Bold';
+    src: url('./../../assets/fonts/OpenSans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans - Extra Bold';
+    src: url('./../../assets/fonts/OpenSans/OpenSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans - Semi Bold';
+    src: url('./../../assets/fonts/OpenSans/OpenSans-SemiBold.ttf');
+}
+
 body {
-    font-family: 'Open Sans - Light';
+    font-family: 'Open Sans';
     color: white;
+}
+
+button {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0;
+}
+
+.tab, .tabClicked {
+    font-family: 'Open Sans - Semi Bold';
+    height: 100%;
+    width: 30%;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 150%;
+    border-bottom-width: 6px;
+}
+
+.tab:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab:active {
+    color: rgba(255, 255, 255, 1);
+}
+
+.tabClicked {
+    color: rgba(255, 255, 255, 1);
 }
 
 #background {
     /* background-color: aquamarine; */
-    background-image: url('./../../assets/images/morning-hike.png');
+    background-image: url('./../../assets/images/morning-fog.png');
     position: absolute;
     top: 0;
     right: 0;
@@ -31,8 +79,16 @@ body {
     left: 0;
 }
 
+#tabs {
+    position: absolute;
+    height: 5%;
+    width: 30%;
+    bottom: 30%;
+    /* background-color: blueviolet */
+}
+
 #bottom {
-    background-color: rgba(180, 180, 180, 0.8);
+    background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
     width: 100%;
     height: 30%;
@@ -41,9 +97,49 @@ body {
     bottom: 0;
 }
 
+#welcome {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    right: 30%;
+}
+
 #welcomeText {
-    position: relative;
     text-align: center;
-    top: 40%;
     font-size: 400%; 
+    height: 60px;
+}
+
+#welcomeTime {
+    font-family: 'Open Sans - Light';
+    text-align: center;
+    font-size: 250%;
+    letter-spacing: 2px;
+    /* padding-top: -50px; */
+}
+
+#location {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    color: white;
+    /* background-color: brown; */
+}
+
+#city {
+    font-family: 'Open Sans - Extra Bold';
+    font-size: 200%;
+}
+
+#country {
+    font-family: 'Open Sans - Light';
+    font-size: 170%;
+}
+
+#weatherTab {
+    border-bottom-color: #ffe680;
+}
+
+#newsTab {
+    border-bottom-color: #80ccff;
 }
