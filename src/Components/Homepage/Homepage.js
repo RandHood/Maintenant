@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import News from './../News/News';
 import Weather from './../Weather/Weather';
 import './Homepage.css';
 
@@ -37,7 +38,7 @@ class Homepage extends Component {
 
     displayNews() {
       this.setState({
-        component: <h1>news</h1>,
+        component: <News />,
         display: 'news',
       });
     }

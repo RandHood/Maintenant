@@ -1,0 +1,59 @@
+
+body {
+    color: #777;
+    padding-left: 3rem;
+ }
+
+.heading-tertiary {
+    top: 0%;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase; 
+    margin-bottom: 1.5rem; 
+}
+
+.news-description {
+    position: absolute;
+    top: 5rem;
+}
+
+.buttons {
+    position: absolute;
+    top: 10rem;
+}
+.btn, .btn:link, .btn:visited {
+    color:white;
+    background-color: rgba(146, 140, 140, 0.514);
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10rem;
+    padding: 0.5rem 0.5rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer; 
+    width: 8rem;
+}
+
+
+.btn:active, .btn:focus {
+    outline: none;
+}
+
+.image-shape {
+        width: 10rem;
+        height: 10rem;
+        margin-left: 5rem;
+        float: right;
+        background-color: rgb(196, 192, 192);
+        -webkit-shape-outside: (50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+}
