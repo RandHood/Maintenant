@@ -82,9 +82,6 @@ class Homepage extends Component {
           <div id="bottom">
               {this.state.component}
           </div>
-          <div>
-            <News />
-          </div>
         </div>
       );
     }
