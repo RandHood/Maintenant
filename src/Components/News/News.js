@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import './News.css';
+import Config from './../../local.config.json';
 
-const APIKEY = 'dbab9d0db36d494596ddc8885cefd7f4';
+const APIKEY = Config.news.api_key;
+const provider = Config.news.provider;
+
+
 let articleIndex = 0;
 
 class News extends Component {
@@ -81,7 +85,7 @@ class News extends Component {
     }
 
     getNews = async () => {
-        const APICall = await fetch('https://newsapi.org/v2/top-headlines?sources=cnn' +
+        const APICall = await fetch(provider +
         '&apiKey=' + APIKEY);
         const response = await APICall.json();
         console.log(response.articles);
