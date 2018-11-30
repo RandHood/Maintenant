@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import './News.css';
 
 const APIKEY = 'dbab9d0db36d494596ddc8885cefd7f4';
+let articleIndex = 0;
 
 class News extends Component {
 
     constructor() {
         super();
         this.state = {
+            rerender: undefined,
             articles: [{
                     title: undefined,
                     url : undefined,
@@ -68,9 +70,10 @@ class News extends Component {
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
-                }],
+            }],
         };
         this.saveFetchedData = this.saveFetchedData.bind(this);
+        this.changeArticle = this.changeArticle.bind(this);
     }
 
     componentDidMount(){
@@ -88,7 +91,6 @@ class News extends Component {
     saveFetchedData(articles) {
         const passingArray = [];
         for (let i = 0; i < 10; i++) {
-            // const passingArray = this.state.articles;
             passingArray.push({
                 title: articles[i].title,
                 url : articles[i].url,
@@ -100,27 +102,34 @@ class News extends Component {
         this.setState({
             articles: passingArray,
         });           
-        console.log(this.state.articles[0].title);
-        console.log(this.state);
+        // console.log(this.state.articles[0].title);
+        // console.log(this.state);
+    }
+
+    changeArticle() {
+        if(articleIndex < 9)
+            articleIndex++;
+        else if(articleIndex == 9) 
+            articleIndex = 0;
+
+        this.setState({rerender: 0});
+        console.log(articleIndex);
     }
     render() {
-       // const tmp = this.state.articles[0].title;
-
         return(
             <body>
-                <div className = "article">   
-                        <figure className = "image-shape">
-                        <img src = {this.state.articles[2].image} className = "image"></img>
-                        </figure>
-                        <div className = "news-text">
-                            <h3 className= "heading-tertiary">
-                                {this.state.articles[2].title}
-                            </h3>
-                            <p>
-                                {this.state.articles[2].description}
-                            </p>
-                            <a href={this.state.articles[2].url} target ="_blank" class="btn btn-white">Read More!</a>
-                        </div>
+                <figure className = "image-shape">
+                <img src = {this.state.articles[articleIndex].image} className = "image"></img>
+                </figure>
+                <div className = "news-text">
+                    <h3 className= "heading-tertiary">
+                        {this.state.articles[articleIndex].title}
+                    </h3>
+                    <p>
+                        {this.state.articles[articleIndex].description}
+                    </p>
+                    <a href={this.state.articles[articleIndex].url} target ="_blank" class="btn btn-white">Read More!</a>
+                    <a target ="_blank" class="btn btn-white" onClick={this.changeArticle}> Next</a>
                 </div>
             </body>
         );
