@@ -121,7 +121,7 @@ class News extends Component {
     }
     render() {
         return(
-            <body>
+            <div>
                 <figure className = "image-shape">
                 <img src = {this.state.articles[articleIndex].image} className = "image"></img>
                 </figure>
@@ -133,11 +133,12 @@ class News extends Component {
                         {this.state.articles[articleIndex].description}
                     </p>
                     <div className = "buttons">
-                        <a href={this.state.articles[articleIndex].url} target ="_blank" class="btn btn-white">Read More!</a>
-                        <a target ="_blank" class="btn btn-white" onClick={this.changeArticle}> Next</a>
+                        <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank" >Read More!</a>
+                        <button class="btn button" onClick={this.changeArticle}>Next</button>
+
                     </div>
                 </div>
-            </body>
+            </div>
         );
     }
 }

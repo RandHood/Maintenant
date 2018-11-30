@@ -58,12 +58,18 @@ button {
     border-bottom-width: 6px;
 }
 
+.tabClicked:focus {
+    outline:0;
+}
+
 .tab:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 .tab:active {
     color: rgba(255, 255, 255, 1);
+    outline:0;
+
 }
 
 .tabClicked {
