@@ -79,7 +79,7 @@ class Weather extends Component {
 
     saveFetchedData(currentResponse, forecastResponse) {
         const forecast = [];
-        for (let i = 8; i < 4; i += 8) {
+        for (let i = 8; i <= 32; i += 8) {
             forecast.push({
                 date: new Date(forecastResponse.list[i].dt_txt),
                 temperature: Math.floor(forecastResponse.list[i].main.temp),
@@ -104,42 +104,55 @@ class Weather extends Component {
             forecast,
         });
 
-        console.log(this.state);
+        // console.log(this.state);
         // console.log((new Date().getDate()));
-        console.log(getDayName(new Date()));
-        console.log(getMonthName(new Date()));
+        // console.log(getDayName(new Date()));
+        // console.log(getMonthName(new Date()));
+        // console.log(getDayName(this.state.forecast[0].date));
     }
 
     render() {
-        return(
-            <div className="container">
-                <div id="day-1">
-                    <div className="center">
-                        <h1>{ this.state.current.temperature }&deg;</h1>
+        if (this.state.forecast[3].icon === undefined) {
+            return (
+                <h1>loading</h1>
+            );
+        } else {
+            const day_1 = this.state.current;
+            const day_2 = this.state.forecast[0];
+            const day_3 = this.state.forecast[1];
+            const day_4 = this.state.forecast[2];
+            const day_5 = this.state.forecast[3];
+            return(
+                <div className="container">
+                    <div id="day-1">
+                        <div className="center">
+                            <h1>{ day_1.temperature }&deg;</h1>
+                            {/* <h1>{ getDayName(day_1.date) }</h1> */}
+                        </div>
+                    </div>
+                    <div className="followingDay">
+                        <div className="center">
+                            <h1>{ day_2.temperature }&deg;</h1>
+                        </div>
+                    </div>
+                    <div className="followingDay">
+                        <div className="center">
+                            <h1>{ day_3.temperature }&deg;</h1>
+                        </div>
+                    </div>
+                    <div className="followingDay">
+                        <div className="center">
+                            <h1>{ day_4.temperature }&deg;</h1>
+                        </div>
+                    </div>
+                    <div className="followingDay">
+                        <div className="center">
+                            <h1>{ day_5.temperature }&deg;</h1>
+                        </div>
                     </div>
                 </div>
-                <div className="followingDay">
-                    <div className="center">
-                        <h1>day2</h1>
-                    </div>
-                </div>
-                <div className="followingDay">
-                    <div className="center">
-                        <h1>day3</h1>
-                    </div>
-                </div>
-                <div className="followingDay">
-                    <div className="center">
-                        <h1>day4</h1>
-                    </div>
-                </div>
-                <div className="followingDay">
-                    <div className="center">
-                        <h1>day5</h1>
-                    </div>
-                </div>
-            </div>
-        );
+            );
+        }
     }
 }
 
