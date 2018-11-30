@@ -36,7 +36,7 @@ class Homepage extends Component {
 
     displayNews() {
       this.setState({
-        component: <h1>news</h1>,
+        component: <News />,
         display: 'news',
       });
     }

@@ -123,10 +123,10 @@ class Weather extends Component {
             }],
         });
 
-        console.log(this.state);
+        // console.log(this.state);
         // console.log((new Date().getDate()));
-        console.log(getDayName(new Date()));
-        console.log(getMonthName(new Date()));
+        // console.log(getDayName(new Date()));
+        // console.log(getMonthName(new Date()));
     }
 
     render() {

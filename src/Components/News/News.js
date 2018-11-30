@@ -7,15 +7,72 @@ class News extends Component {
     constructor() {
         super();
         this.state = {
-            articles: undefined,
+            articles: [{
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }, {
+                    title: undefined,
+                    url : undefined,
+                    content: undefined,
+                    publishedAt: undefined,
+                    image: undefined,
+                }],
         };
+        this.saveFetchedData = this.saveFetchedData.bind(this);
     }
 
     componentDidMount(){
-        this.setState({
-            articles: [],
-        });
-
         this.getNews();
     }
 
@@ -23,20 +80,20 @@ class News extends Component {
         const APICall = await fetch('https://newsapi.org/v2/top-headlines?sources=cnn' +
         '&apiKey=' + APIKEY);
         const response = await APICall.json();
-        console.log(response.articles);
+        // console.log(response.articles);
         this.saveFetchedData(response.articles);
     }
 
-    saveFetchedData(response) {
+    saveFetchedData(articles) {
         const passingArray = [];
         for (let i = 0; i < 10; i++) {
             // const passingArray = this.state.articles;
             passingArray.push({
-                title: response[i].title,
-                url : response[i].url,
-                content: response[i].content,
-                publishedAt: response[i].publishedAt,
-                image: response[i].urlToImage,
+                title: articles[i].title,
+                url : articles[i].url,
+                content: articles[i].content,
+                publishedAt: articles[i].publishedAt,
+                image: articles[i].urlToImage,
             });
         }
         this.setState({
@@ -46,9 +103,10 @@ class News extends Component {
         console.log(this.state);
     }
     render() {
+        const tmp = this.state.articles[0].title;
 
         return(
-            <h1></h1>
+            <h1>{tmp}</h1>
         );
     }
 }
