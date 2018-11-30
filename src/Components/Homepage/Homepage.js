@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import News from './../News/News';
+import Weather from './../Weather/Weather';
 import './Homepage.css';
 
 class Homepage extends Component {
@@ -80,6 +81,9 @@ class Homepage extends Component {
           </div>
           <div id="bottom">
               {this.state.component}
+          </div>
+          <div>
+            <News />
           </div>
         </div>
       );
