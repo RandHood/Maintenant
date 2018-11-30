@@ -107,7 +107,7 @@ class News extends Component {
             articles: passingArray,
         });           
         // console.log(this.state.articles[0].title);
-        // console.log(this.state);
+         console.log(this.state);
     }
 
     changeArticle() {
@@ -121,7 +121,7 @@ class News extends Component {
     }
     render() {
         return(
-            <div>
+            <div className="article">
                 <figure className = "image-shape">
                 <img src = {this.state.articles[articleIndex].image} className = "image"></img>
                 </figure>
