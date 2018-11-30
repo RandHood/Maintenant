@@ -50,10 +50,10 @@ class Homepage extends Component {
       let welcomeText;
       if (hours >= 4 && hours <= 11)
         welcomeText = 'Good Morning';
-      else if (hours >= 12 && hours <= 21)
-        welcomeText = 'Good Evening';
+      else if (hours >= 12 && hours <= 17)
+        welcomeText = 'Good Afternoon';
       else
-        welcomeText = 'Good Night';
+        welcomeText = 'Good Evening';
 
       let weatherButtonClass, newsButtonClass;
       if (this.state.display === 'weather') {
@@ -64,7 +64,7 @@ class Homepage extends Component {
         newsButtonClass = 'tabClicked';
       }
 
-      // The whole page is in a class .unselected; which doesn't allow selecting any text.
+      // The whole page is in a css class .unselected; which doesn't allow selecting any text.
       return (
         <div class="unselectable" id="background">
           <div id="top">
