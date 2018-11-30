@@ -125,11 +125,13 @@ class News extends Component {
                     <h3 className= "heading-tertiary">
                         {this.state.articles[articleIndex].title}
                     </h3>
-                    <p>
+                    <p className = "news-description">
                         {this.state.articles[articleIndex].description}
                     </p>
-                    <a href={this.state.articles[articleIndex].url} target ="_blank" class="btn btn-white">Read More!</a>
-                    <a target ="_blank" class="btn btn-white" onClick={this.changeArticle}> Next</a>
+                    <div className = "buttons">
+                        <a href={this.state.articles[articleIndex].url} target ="_blank" class="btn btn-white">Read More!</a>
+                        <a target ="_blank" class="btn btn-white" onClick={this.changeArticle}> Next</a>
+                    </div>
                 </div>
             </body>
         );
