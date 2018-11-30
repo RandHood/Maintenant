@@ -114,19 +114,29 @@ class Weather extends Component {
         return(
             <div className="container">
                 <div id="day-1">
-                    <h1>{ this.state.current.temperature }&deg;</h1>
+                    <div className="center">
+                        <h1>{ this.state.current.temperature }&deg;</h1>
+                    </div>
                 </div>
                 <div className="followingDay">
-                    <h1>day2</h1>
+                    <div className="center">
+                        <h1>day2</h1>
+                    </div>
                 </div>
                 <div className="followingDay">
-                    <h1>day3</h1>
+                    <div className="center">
+                        <h1>day3</h1>
+                    </div>
                 </div>
                 <div className="followingDay">
-                    <h1>day4</h1>
+                    <div className="center">
+                        <h1>day4</h1>
+                    </div>
                 </div>
                 <div className="followingDay">
-                    <h1>day5</h1>
+                    <div className="center">
+                        <h1>day5</h1>
+                    </div>
                 </div>
             </div>
         );
