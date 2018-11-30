@@ -78,6 +78,19 @@ class Weather extends Component {
     }
 
     saveFetchedData(currentResponse, forecastResponse) {
+        const forecast = [];
+        for (let i = 8; i < 4; i += 8) {
+            forecast.push({
+                date: new Date(forecastResponse.list[i].dt_txt),
+                temperature: Math.floor(forecastResponse.list[i].main.temp),
+                description: forecastResponse.list[i].weather[0].main,
+                pressure: forecastResponse.list[i].main.pressure,
+                humidity: forecastResponse.list[i].main.humidity,
+                windSpeed: forecastResponse.list[i].wind.speed,
+                icon: forecastResponse.list[i].weather[0].icon,
+            });
+        }
+
         this.setState({
             current: {
                 date: new Date(),
@@ -88,39 +101,7 @@ class Weather extends Component {
                 windSpeed: currentResponse.wind.speed,
                 icon: currentResponse.weather[0].icon,
             },
-            forecast: [{
-                date: new Date(forecastResponse.list[8].dt_txt),
-                temperature: Math.floor(forecastResponse.list[8].main.temp),
-                description: forecastResponse.list[8].weather[0].main,
-                pressure: forecastResponse.list[8].main.pressure,
-                humidity: forecastResponse.list[8].main.humidity,
-                windSpeed: forecastResponse.list[8].wind.speed,
-                icon: forecastResponse.list[8].weather[0].icon,
-            }, {
-                date: new Date(forecastResponse.list[16].dt_txt),
-                temperature: Math.floor(forecastResponse.list[16].main.temp),
-                description: forecastResponse.list[16].weather[0].main,
-                pressure: forecastResponse.list[16].main.pressure,
-                humidity: forecastResponse.list[16].main.humidity,
-                windSpeed: forecastResponse.list[16].wind.speed,
-                icon: forecastResponse.list[16].weather[0].icon,
-            }, {
-                date: new Date(forecastResponse.list[24].dt_txt),
-                temperature: Math.floor(forecastResponse.list[24].main.temp),
-                description: forecastResponse.list[24].weather[0].main,
-                pressure: forecastResponse.list[24].main.pressure,
-                humidity: forecastResponse.list[24].main.humidity,
-                windSpeed: forecastResponse.list[24].wind.speed,
-                icon: forecastResponse.list[24].weather[0].icon,
-            }, {
-                date: new Date(forecastResponse.list[32].dt_txt),
-                temperature: Math.floor(forecastResponse.list[32].main.temp),
-                description: forecastResponse.list[32].weather[0].main,
-                pressure: forecastResponse.list[32].main.pressure,
-                humidity: forecastResponse.list[32].main.humidity,
-                windSpeed: forecastResponse.list[32].wind.speed,
-                icon: forecastResponse.list[32].weather[0].icon,
-            }],
+            forecast,
         });
 
         console.log(this.state);
