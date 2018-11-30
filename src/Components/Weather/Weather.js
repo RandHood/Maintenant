@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Config from './../../config.json';
 import { getDayName, getMonthName } from './../Util/DateHelper';
 import './Weather.css';
 
-const weatherProvider = 'http://api.openweathermap.org/data/2.5';
-const weatherAPIKey = '49f5f1b2aa04f7d7e6436cbe2ed83bfc';
+const weatherProvider = Config.weather.provider;
+const weatherAPIKey = Config.weather.api_key;
 const weatherAPI = '&APPID=' + weatherAPIKey;
 
 class Weather extends Component {
@@ -72,9 +73,6 @@ class Weather extends Component {
         const forecastResponse = await forecastAPICall.json();
 
         this.saveFetchedData(currentResponse, forecastResponse);
-
-        // console.log(currentResponse);
-        // console.log(forecastResponse);
     }
 
     saveFetchedData(currentResponse, forecastResponse) {
@@ -127,7 +125,8 @@ class Weather extends Component {
                     <div id="day-1">
                         <div className="center">
                             <h1>{ day_1.temperature }&deg;</h1>
-                            {/* <h1>{ getDayName(day_1.date) }</h1> */}
+                            <br/>
+                            <h1>{ getDayName(day_1.date) }</h1>
                         </div>
                     </div>
                     <div className="followingDay">
