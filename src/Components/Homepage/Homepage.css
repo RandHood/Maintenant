@@ -73,6 +73,7 @@ button {
 #background {
     /* background-color: aquamarine; */
     background-image: url('./../../assets/images/morning-fog.png');
+    /* background-image: url('./../../assets/weather-icons/clear.png'); */
     position: absolute;
     top: 0;
     right: 0;

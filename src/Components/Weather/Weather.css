@@ -33,6 +33,7 @@
 .center {
     /* flex-direction: row; */
     height: 100%;
+    flex-direction: column;
     
     display: -webkit-box;
     display: -webkit-flex;
@@ -44,4 +45,53 @@
     -webkit-align-items: center;
     align-items: center;
     justify-content: center;
+}
+
+#day-1-temp {
+    font-family: 'Open Sans - Semi Bold';
+    font-size: 550%;
+    margin: 0;
+    /* background-color: blue */
+}
+
+.followingDays-temp {
+    font-family: 'Open Sans - Semi Bold';
+    font-size: 150%;
+    margin: 0;
+}
+
+.degree {
+    font-size: 95%;
+}
+
+.date {
+    font-family: 'Open Sans - Semi Bold';
+    font-size: 120%;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2rem;
+    margin: 1.2rem;
+}
+
+.Clear {
+    background-image: url('./../../assets/weather-icons/clear.png');
+    width: 10 px;
+    height: 20px;
+}
+
+.Clouds {
+    background-image: url('./../../assets/weather-icons/clouds.png');
+}
+
+.Rain {
+    background-image: url('./../../assets/weather-icons/clouds.png');
+}
+
+.Snow {
+    background-image: url('./../../assets/weather-icons/clouds.png');
+}
+
+.Storm {
+    background-image: url('./../../assets/weather-icons/clouds.png');
 }
