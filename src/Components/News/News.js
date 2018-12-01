@@ -139,7 +139,7 @@ class News extends Component {
             articles: passingArray,
         });           
         // console.log(this.state.articles[0].title);
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     changeArticle() {
