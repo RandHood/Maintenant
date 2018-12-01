@@ -107,7 +107,7 @@ class News extends Component {
             articles: passingArray,
         });           
         // console.log(this.state.articles[0].title);
-        // console.log(this.state);
+         console.log(this.state);
     }
 
     changeArticle() {
@@ -121,9 +121,9 @@ class News extends Component {
     }
     render() {
         return(
-            <div>
+            <div className="article">
                 <figure className = "image-shape">
-                <img src = {this.state.articles[articleIndex].image} className = "image"></img>
+                <img src = {this.state.articles[articleIndex].image} className = "image" />
                 </figure>
                 <div className = "news-text">
                     <h3 className= "heading-tertiary">
@@ -133,8 +133,9 @@ class News extends Component {
                         {this.state.articles[articleIndex].description}
                     </p>
                     <div className = "buttons">
-                        <a href={this.state.articles[articleIndex].url} target ="_blank" class="btn btn-white">Read More!</a>
-                        <a target ="_blank" class="btn btn-white" onClick={this.changeArticle}> Next</a>
+                        <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank" >Read More!</a>
+                        <button class="btn button" onClick={this.changeArticle}>Next</button>
+
                     </div>
                 </div>
             </div>
