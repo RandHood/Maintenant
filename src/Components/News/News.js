@@ -14,6 +14,7 @@ class News extends Component {
         super();
         this.state = {
             rerender: undefined,
+            articlesCount: undefined,
             articles: [{
                     title: undefined,
                     url : undefined,
@@ -114,6 +115,7 @@ class News extends Component {
 
     saveFetchedData(articles) {
         const passingArray = [];
+        let articleLength = 0;
         for (let i = 0; i < 10; i++) {
             let hours = new Date(articles[i].publishedAt).getHours();
             if(hours < 10) {
@@ -134,18 +136,20 @@ class News extends Component {
                 hour: hours,
                 minutes: minutes,
             });
+            articleLength++;
         }
         this.setState({
             articles: passingArray,
+            articlesCount: articleLength
         });           
         // console.log(this.state.articles[0].title);
         console.log(this.state);
     }
 
     changeArticle() {
-        if(articleIndex < 9)
+        if(articleIndex < this.state.articlesCount - 1)
             articleIndex++;
-        else if(articleIndex == 9) 
+        else if(articleIndex == this.state.articlesCount - 1) 
             articleIndex = 0;
 
         this.setState({rerender: 0});
