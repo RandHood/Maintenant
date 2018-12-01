@@ -123,7 +123,7 @@ class News extends Component {
         return(
             <div className="article">
                 <figure className = "image-shape">
-                <img src = {this.state.articles[articleIndex].image} className = "image"></img>
+                <img src = {this.state.articles[articleIndex].image} className = "image" />
                 </figure>
                 <div className = "news-text">
                     <h3 className= "heading-tertiary">

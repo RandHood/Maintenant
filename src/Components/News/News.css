@@ -109,7 +109,7 @@ body {
     height: 10rem;
     margin-left: 5rem;
     float: right;
-    background-color: rgb(196, 192, 192);
+    background-color: rgba(0, 0, 0, 0);
     -webkit-shape-outside: (50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
