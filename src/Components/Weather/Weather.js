@@ -172,7 +172,7 @@ class Weather extends Component {
                                 <div id="section-2-bottom">
                                     <span>{day_1.windSpeed + ' km/h'}</span>
                                     <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-                                    <span>{day_1.humidity}&deg;</span>
+                                    <span>{day_1.humidity + '%'}</span>
                                 </div>
                             </div>
                         </div>

@@ -113,8 +113,8 @@
 
 .ClearToday, .CloudsToday, .RainToday, .SnowToday, .StormToday {
     background-repeat: no-repeat;
-    width: 20%;
-    height: 40%;
+    width: 28%;
+    height: 50%;
 }
 
 .ClearToday {
@@ -137,37 +137,28 @@
     background-image: url('./../../assets/weather-icons/stormToday.png');
 }
 
+.Clear, .Clouds, .Rain, .Snow, .Storm {
+    background-repeat: no-repeat;
+    width: 30%;
+    height: 25%;
+}
+
 .Clear {
     background-image: url('./../../assets/weather-icons/clear.png');
-    background-repeat: no-repeat;
-    width: 20%;
-    height: 20%;
 }
 
 .Clouds {
     background-image: url('./../../assets/weather-icons/clouds.png');
-    background-repeat: no-repeat;
-    width: 20%;
-    height: 20%;
 }
 
 .Rain {
     background-image: url('./../../assets/weather-icons/clouds.png');
-    background-repeat: no-repeat;
-    width: 20%;
-    height: 20%;
 }
 
 .Snow {
     background-image: url('./../../assets/weather-icons/clouds.png');
-    background-repeat: no-repeat;
-    width: 20%;
-    height: 20%;
 }
 
 .Storm {
     background-image: url('./../../assets/weather-icons/clouds.png');
-    background-repeat: no-repeat;
-    width: 20%;
-    height: 20%;
 }
