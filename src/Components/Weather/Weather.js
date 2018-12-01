@@ -138,46 +138,70 @@ class Weather extends Component {
             const day_3 = this.state.forecast[1];
             const day_4 = this.state.forecast[2];
             const day_5 = this.state.forecast[3];
+
+            const todayDate = day_1.date.getDate();
+            let todayDateCont ;
+            if (todayDate === 1 || todayDate === 21 || todayDate === 31)
+                todayDateCont = 'st';
+            else if (todayDate === 2 || todayDate === 22)
+                todayDateCont = 'nd';
+            else if (todayDate === 3)
+                todayDateCont = 'rd';
+            else
+                todayDateCont = 'th';
+
             console.log(day_3.icon);
             return(
                 <div className="container">
-                    <div id="day-1">
-                        <div className="center">
-                            <div>
-                                <span id="day-1-temp">{ day_1.temperature }
-                                    <span className="degree">&deg;</span>
-                                </span>
+                    <div id="day-1-container">
+                        <div id="day-1">
+                            <div className="center">
+                                <div>
+                                    <span id="day-1-temp">{ day_1.temperature }
+                                        <span className="degree">&deg;</span>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span className="date">{ getDayName(day_1.date) + ' ' + day_1.date.getDate() }
+                                        <span id="dateCont">{ todayDateCont }</span>
+                                    </span>
+                                </div>
                             </div>
-                            <div>
-                                <span className="date">{ getDayName(day_1.date) + ' ' + day_1.date.getDate() }</span>
+                            <div className="center" id="day-1-section-2">
+                                <div className={day_2.description + 'Today'}></div>
+                                <div id="section-2-bottom">
+                                    <span>{day_1.windSpeed + ' km/h'}</span>
+                                    <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+                                    <span>{day_1.humidity}&deg;</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="followingDay">
                         <div className="center">
                             <span className="date">{ getDaySmallName(day_2.date) }</span>
-                            <img className={day_2.description} src={day_2.icon} alt={day_2.description}/>
+                            <div className={day_2.description}></div>
                             <span className="followingDays-temp">{ day_2.temperature }&deg;</span>
                         </div>
                     </div>
                     <div className="followingDay">
                         <div className="center">
                             <span className="date">{ getDaySmallName(day_3.date) }</span>
-                            <img src={day_3.icon} alt={day_3.description}/>
+                            <div className={day_3.description}></div>
                             <span className="followingDays-temp">{ day_3.temperature }&deg;</span>
                         </div>
                     </div>
                     <div className="followingDay">
                         <div className="center">
                             <span className="date">{ getDaySmallName(day_4.date) }</span>
-                            <img src={day_4.icon} alt={day_4.description}></img>
+                            <div className={day_4.description}></div>
                             <span className="followingDays-temp">{ day_4.temperature }&deg;</span>
                         </div>
                     </div>
                     <div className="followingDay">
                         <div className="center">
                             <span className="date">{ getDaySmallName(day_5.date) }</span>
-                            <img src={day_5.icon} alt={day_5.description}/>
+                            <div className={day_5.description}></div>
                             <span className="followingDays-temp">{ day_5.temperature }&deg;</span>
                         </div>
                     </div>
