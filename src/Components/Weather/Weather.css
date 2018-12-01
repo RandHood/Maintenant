@@ -76,7 +76,7 @@
 }
 
 #section-2-bottom {
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
 }
 
 #day-1-temp {
@@ -113,8 +113,8 @@
 
 .ClearToday, .CloudsToday, .RainToday, .SnowToday, .StormToday {
     background-repeat: no-repeat;
-    width: 28%;
-    height: 50%;
+    width: 8rem;
+    height: 8rem;
 }
 
 .ClearToday {
@@ -139,8 +139,8 @@
 
 .Clear, .Clouds, .Rain, .Snow, .Storm {
     background-repeat: no-repeat;
-    width: 30%;
-    height: 25%;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .Clear {
