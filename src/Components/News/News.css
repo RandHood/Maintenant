@@ -8,10 +8,10 @@
     src: url('./../../assets/fonts/OpenSans/OpenSans-Bold.ttf');
 }
 
-body {
-    color: #777;
-    padding-left: 3rem;
- }
+@font-face {
+    font-family: 'Open Sans - Italic';
+    src: url('./../../assets/fonts/OpenSans/OpenSans-Italic.ttf');
+}
 
 .heading-tertiary {
     font-family: 'Open Sans - Bold';
@@ -19,7 +19,7 @@ body {
     font-size: 1.4rem;
     font-weight: 700;
     text-transform: uppercase; 
-    margin-bottom: 1.5rem; 
+    margin-bottom: 0rem;
 }
 
 .article{
@@ -119,4 +119,9 @@ body {
 .image {
     height: 100%;
     width: 100%;
+}
+
+.time {
+    font-family: 'Open Sans - Italic';
+    margin-left: 1rem;
 }

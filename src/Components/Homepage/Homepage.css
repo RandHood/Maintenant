@@ -56,6 +56,7 @@ button {
     color: rgba(255, 255, 255, 0.6);
     font-size: 150%;
     border-bottom-width: 6px;
+    outline:0;
 }
 
 .tabClicked:focus {
@@ -72,6 +73,10 @@ button {
 
 }
 
+.tabClicked:focus {
+    outline:0;
+}
+
 .tabClicked {
     color: rgba(255, 255, 255, 1);
 }
@@ -79,6 +84,7 @@ button {
 #background {
     /* background-color: aquamarine; */
     background-image: url('./../../assets/images/morning-fog.png');
+    /* background-image: url('./../../assets/weather-icons/clear.png'); */
     position: absolute;
     top: 0;
     right: 0;
@@ -103,7 +109,7 @@ button {
 }
 
 #bottom {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.15);
     position: absolute;
     width: 100%;
     height: 30%;

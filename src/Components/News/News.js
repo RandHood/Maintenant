@@ -20,60 +20,80 @@ class News extends Component {
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
                 }, {
                     title: undefined,
                     url : undefined,
                     description: undefined,
                     publishedAt: undefined,
                     image: undefined,
+                    hour: undefined,
+                    minutes: undefined,
             }],
         };
         this.saveFetchedData = this.saveFetchedData.bind(this);
@@ -95,19 +115,31 @@ class News extends Component {
     saveFetchedData(articles) {
         const passingArray = [];
         for (let i = 0; i < 10; i++) {
+            let hours = new Date(articles[i].publishedAt).getHours();
+            if(hours < 10) {
+                hours = '0' + hours;
+            }
+
+            let minutes = new Date(articles[i].publishedAt).getMinutes();
+            if(minutes < 10) {
+                minutes = '0' + minutes;
+            }
+
             passingArray.push({
                 title: articles[i].title,
                 url : articles[i].url,
                 description: articles[i].description,
                 publishedAt: articles[i].publishedAt,
                 image: articles[i].urlToImage,
+                hour: hours,
+                minutes: minutes,
             });
         }
         this.setState({
             articles: passingArray,
         });           
         // console.log(this.state.articles[0].title);
-         console.log(this.state);
+        console.log(this.state);
     }
 
     changeArticle() {
@@ -117,11 +149,11 @@ class News extends Component {
             articleIndex = 0;
 
         this.setState({rerender: 0});
-        console.log(articleIndex);
     }
+
     render() {
         return(
-            <div className="article">
+            <div className = "article">
                 <figure className = "image-shape">
                 <img src = {this.state.articles[articleIndex].image} className = "image" />
                 </figure>
@@ -129,6 +161,7 @@ class News extends Component {
                     <h3 className= "heading-tertiary">
                         {this.state.articles[articleIndex].title}
                     </h3>
+                    <span className = "time"> {this.state.articles[articleIndex].hour} : {this.state.articles[articleIndex].minutes}</span>
                     <p className = "news-description">
                         {this.state.articles[articleIndex].description}
                     </p>
