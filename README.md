@@ -27,7 +27,7 @@ Skip this part if you already have Docker installed.
 
 **Step 2:** Copy the content of the file `src/config-example.json`.
 
-**Step 3:** Paste the copied content into your newly created file `src/local.congif.json`.
+**Step 3:** Paste the copied content into your newly created file `src/local.config.json`.
 
 #
 
