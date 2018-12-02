@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import './News.css';
 import Config from './../../local.config.json';
+import './News.css';
 
 const APIKEY = Config.news.api_key;
 const provider = Config.news.provider;
-
-
 let articleIndex = 0;
 
 class News extends Component {
-
     constructor() {
         super();
         this.state = {
@@ -106,10 +103,8 @@ class News extends Component {
     }
 
     getNews = async () => {
-        const APICall = await fetch(provider +
-        '&apiKey=' + APIKEY);
+        const APICall = await fetch(provider + '&apiKey=' + APIKEY);
         const response = await APICall.json();
-        console.log(response.articles);
         this.saveFetchedData(response.articles);
     }
 
@@ -141,15 +136,13 @@ class News extends Component {
         this.setState({
             articles: passingArray,
             articlesCount: articleLength
-        });           
-        // console.log(this.state.articles[0].title);
-        // console.log(this.state);
+        });
     }
 
     changeArticle() {
         if(articleIndex < this.state.articlesCount - 1)
             articleIndex++;
-        else if(articleIndex == this.state.articlesCount - 1) 
+        else if(articleIndex === this.state.articlesCount - 1) 
             articleIndex = 0;
 
         this.setState({rerender: 0});
@@ -159,7 +152,7 @@ class News extends Component {
         return(
             <div className = "article">
                 <figure className = "image-shape">
-                <img src = {this.state.articles[articleIndex].image} className = "image" />
+                <img src = {this.state.articles[articleIndex].image} className = "image" alt="" />
                 </figure>
                 <div className = "news-text">
                     <h3 className= "heading-tertiary">
@@ -170,9 +163,8 @@ class News extends Component {
                         {this.state.articles[articleIndex].description}
                     </p>
                     <div className = "buttons">
-                        <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank" >Read More!</a>
+                        <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank">Read More!</a>
                         <button class="btn button" onClick={this.changeArticle}>Next</button>
-
                     </div>
                 </div>
             </div>
