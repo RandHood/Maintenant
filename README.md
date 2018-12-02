@@ -5,7 +5,7 @@ Maintenant is a web app that gives you the forecast along with news.
 ### Tabs
 
 * Weather - 5 days forecast, today's windspeed and humidity
-* News - Contains global news with their source.
+* News - Contains global news.
 
 ---
 
