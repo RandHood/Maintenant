@@ -81,13 +81,20 @@ button {
     color: rgba(255, 255, 255, 1);
 }
 
-#background {
-    background-image: url('./../../assets/images/morning-fog.png');
+#background-morning, #background-evening {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+#background-morning {
+    background-image: url('./../../assets/images/morning-fog.png');
+}
+
+#background-evening {
+    background-image: url('./../../assets/images/evening-stars.png');
 }
 
 #top {
@@ -106,7 +113,7 @@ button {
 }
 
 #bottom {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.25);
     position: absolute;
     width: 100%;
     height: 30%;
