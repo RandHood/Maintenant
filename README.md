@@ -31,7 +31,7 @@ Skip this part if you already have Docker installed.
 
 #
 
-### Running on browser
+#### Running on browser
 
 Now that you have everything setup and ready, open your terminal in the project directory and run the following command: **`docker-compose up`**
 
