@@ -149,26 +149,32 @@ class News extends Component {
     }
 
     render() {
-        return(
-            <div className = "article">
-                <figure className = "image-shape">
-                <img src = {this.state.articles[articleIndex].image} className = "image" alt="" />
-                </figure>
-                <div className = "news-text">
-                    <h3 className= "heading-tertiary">
-                        {this.state.articles[articleIndex].title}
-                    </h3>
-                    <span className = "time"> {this.state.articles[articleIndex].hour} : {this.state.articles[articleIndex].minutes}</span>
-                    <p className = "news-description">
-                        {this.state.articles[articleIndex].description}
-                    </p>
-                    <div className = "buttons">
-                        <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank">Read More!</a>
-                        <button class="btn button" onClick={this.changeArticle}>Next</button>
+        if (this.state.articles[0].title === undefined) {
+            return (
+                <h1 className="center">...</h1>
+            );
+        } else {
+            return(
+                <div className = "article">
+                    <figure className = "image-shape">
+                    <img src = {this.state.articles[articleIndex].image} className = "image" alt="" />
+                    </figure>
+                    <div className = "news-text">
+                        <h3 className= "heading-tertiary">
+                            {this.state.articles[articleIndex].title}
+                        </h3>
+                        <span className = "time"> {this.state.articles[articleIndex].hour} : {this.state.articles[articleIndex].minutes}</span>
+                        <p className = "news-description">
+                            {this.state.articles[articleIndex].description}
+                        </p>
+                        <div className = "buttons">
+                            <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank">Read More!</a>
+                            <button class="btn button" onClick={this.changeArticle}>Next</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 
