@@ -23,11 +23,11 @@ Skip this part if you already have Docker installed.
 
 #### Setup Config
 
-**Step 1:** Create a new file in `src/` with the name *`local.config.json`*.
+**Step 1:** Create a new file in `src/` with the name *`local.config.json`*
 
-**Step 2:** Copy the content of the file `src/config-example.json`.
+**Step 2:** Copy the content of the file `src/config-example.json`
 
-**Step 3:** Paste the copied content into your newly created file `src/local.config.json`.
+**Step 3:** Paste the copied content into your newly created file `src/local.config.json`
 
 #
 
