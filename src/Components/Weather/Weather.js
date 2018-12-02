@@ -90,11 +90,6 @@ class Weather extends Component {
 
     saveFetchedData(currentResponse, forecastResponse) {
         const forecast = [];
-
-        // for (let i = 0; i < 40; i++) {
-        //     console.log(forecastResponse.list[i].weather[0].main + ', ' + forecastResponse.list[i].weather[0].description);
-        // }
-
         for (let i = 8; i <= 32; i += 8) {
             forecast.push({
                 date: new Date(forecastResponse.list[i].dt_txt),
@@ -119,12 +114,6 @@ class Weather extends Component {
             },
             forecast,
         });
-
-        console.log(this.state);
-        // console.log((new Date().getDate()));
-        // console.log(getDayName(new Date()));
-        // console.log(getMonthName(new Date()));
-        // console.log(getDayName(this.state.forecast[0].date));
     }
 
     render() {
@@ -150,7 +139,6 @@ class Weather extends Component {
             else
                 todayDateCont = 'th';
 
-            console.log(day_3.icon);
             return(
                 <div className="container">
                     <div id="day-1-container">

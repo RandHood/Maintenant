@@ -48,13 +48,19 @@ class Homepage extends Component {
       let mins = new Date().getMinutes();
       mins = mins <= 9 ? '0' + mins : mins;
       
-      let welcomeText;
-      if (hours >= 4 && hours <= 11)
+      let welcomeText, background;
+      if (hours >= 4 && hours <= 11) {
         welcomeText = 'Good Morning';
-      else if (hours >= 12 && hours <= 17)
+        background = 'background-morning';
+      }
+      else if (hours >= 12 && hours <= 17) {
         welcomeText = 'Good Afternoon';
-      else
+        background = 'background-morning';
+      }
+      else {
         welcomeText = 'Good Evening';
+        background = 'background-evening';
+      }
 
       let weatherButtonClass, newsButtonClass;
       if (this.state.display === 'weather') {
@@ -67,7 +73,7 @@ class Homepage extends Component {
 
       // The whole page is in a css class .unselected; which doesn't allow selecting any text.
       return (
-        <div className="unselectable" id="background">
+        <div className="unselectable" id={background}>
           <div id="top">
             <div id="location">
               <span id="city">{this.state.city}</span>

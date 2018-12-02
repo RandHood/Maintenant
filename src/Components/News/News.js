@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import './News.css';
 import Config from './../../local.config.json';
+import './News.css';
 
 const APIKEY = Config.news.api_key;
 const provider = Config.news.provider;
-
-
 let articleIndex = 0;
 
 class News extends Component {
-
     constructor() {
         super();
         this.state = {
@@ -106,10 +103,8 @@ class News extends Component {
     }
 
     getNews = async () => {
-        const APICall = await fetch(provider +
-        '&apiKey=' + APIKEY);
+        const APICall = await fetch(provider + '&apiKey=' + APIKEY);
         const response = await APICall.json();
-        console.log(response.articles);
         this.saveFetchedData(response.articles);
     }
 
@@ -141,41 +136,45 @@ class News extends Component {
         this.setState({
             articles: passingArray,
             articlesCount: articleLength
-        });           
-        // console.log(this.state.articles[0].title);
-        console.log(this.state);
+        });
     }
 
     changeArticle() {
         if(articleIndex < this.state.articlesCount - 1)
             articleIndex++;
-        else if(articleIndex == this.state.articlesCount - 1) 
+        else if(articleIndex === this.state.articlesCount - 1) 
             articleIndex = 0;
 
         this.setState({rerender: 0});
     }
 
     render() {
-        return(
-            <div className = "article">
-                <figure className = "image-shape">
-                <img src = {this.state.articles[articleIndex].image} className = "image"></img>
-                </figure>
-                <div className = "news-text">
-                    <h3 className= "heading-tertiary">
-                        {this.state.articles[articleIndex].title}
-                    </h3>
-                    <span className = "time"> {this.state.articles[articleIndex].hour} : {this.state.articles[articleIndex].minutes}</span>
-                    <p className = "news-description">
-                        {this.state.articles[articleIndex].description}
-                    </p>
-                    <div className = "buttons">
-                        <a href={this.state.articles[articleIndex].url} target ="_blank" class="btn btn-white">Read More!</a>
-                        <a target ="_blank" class="btn btn-white" onClick={this.changeArticle}> Next</a>
+        if (this.state.articles[0].title === undefined) {
+            return (
+                <h1 className="center">...</h1>
+            );
+        } else {
+            return(
+                <div className = "article">
+                    <figure className = "image-shape">
+                    <img src = {this.state.articles[articleIndex].image} className = "image" alt="" />
+                    </figure>
+                    <div className = "news-text">
+                        <h3 className= "heading-tertiary">
+                            {this.state.articles[articleIndex].title}
+                        </h3>
+                        <span className = "time"> {this.state.articles[articleIndex].hour} : {this.state.articles[articleIndex].minutes}</span>
+                        <p className = "news-description">
+                            {this.state.articles[articleIndex].description}
+                        </p>
+                        <div className = "buttons">
+                            <a class="btn" href={this.state.articles[articleIndex].url} target ="_blank">Read More!</a>
+                            <button class="btn button" onClick={this.changeArticle}>Next</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 
