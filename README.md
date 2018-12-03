@@ -7,6 +7,8 @@ Maintenant is a web app that gives you the forecast along with news.
 * Weather - 5 days forecast, today's windspeed and humidity
 * News - Contains today's global headlines with access to the full articles.
 
+*The weather & forecast were provided by [OpenWeatherMap](https://openweathermap.org), news by [News API](https://newsapi.org/)*
+
 ---
 
 ## How to run
@@ -33,17 +35,47 @@ Skip this part if you already have Docker installed.
 
 #
 
-#### Building the Docker image
+#### Option 1: `docker run`
 
-To build the Docker image, open your terminal in the project directory and run the following command:
+##### Building the image
 
-**`docker-compose build`**
+Build the image by running in your terminal the following:
+
+```
+$ docker build -t maintenant_app .
+```
 
 #
 
-#### Running on browser
+##### Running on browser
 
-Now that you have everything setup and ready, run the following command: **`docker-compose up`**
+After building the image start the app and run it on localhost:30000 with the following command:
+```cmd
+$ docker run -p 3000:3000 -d maintenant_app
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+#
+
+#### Option 2: `docker-compose`
+
+##### Building the app
+
+To build the app, open your terminal in the project directory and run the following command:
+
+```
+$ docker-compose build
+```
+
+#
+
+##### Running on browser
+
+Now that you have everything setup and ready, start the app and run it with the following command:
+```
+$ docker-compose up
+```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
