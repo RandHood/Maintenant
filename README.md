@@ -33,9 +33,17 @@ Skip this part if you already have Docker installed.
 
 #
 
+#### Building the Docker image
+
+To build the Docker image, open your terminal in the project directory and run the following command:
+
+**`docker-compose build`**
+
+#
+
 #### Running on browser
 
-Now that you have everything setup and ready, open your terminal in the project directory and run the following command: **`docker-compose up`**
+Now that you have everything setup and ready, run the following command: **`docker-compose up`**
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
