@@ -1,4 +1,4 @@
-# Maintenant <img src="https://github.com/RandHood/Maintenant/blob/develop/public/logo.ico" width="23" alt="Logo">
+# Maintenant <img src="https://github.com/RandHood/Maintenant/blob/master/public/logo.ico" width="23" alt="Logo">
 
 Maintenant is a web app that gives you the forecast along with news.
 
