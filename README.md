@@ -7,7 +7,7 @@ Maintenant is a web app that gives you the forecast along with news.
 * Weather - 5 days forecast, today's windspeed and humidity
 * News - Contains today's global headlines with access to the full articles.
 
-*The weather & forecast were provided by [OpenWeatherMap](https://openweathermap.org), news by [News API](https://newsapi.org/)*
+*The weather & forecast were provided by [OpenWeatherMap](https://openweathermap.org), news from Google News API by [News API](https://newsapi.org/)*
 
 ---
 
