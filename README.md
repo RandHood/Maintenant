@@ -11,6 +11,8 @@ Maintenant is a web app that gives you the forecast along with news.
 
 ## How to run
 
+### Method 1: Using Docker
+
 #### Setup Docker
 
 You must have Docker installed in order to run the app. Download for:
@@ -36,3 +38,7 @@ Skip this part if you already have Docker installed.
 Now that you have everything setup and ready, open your terminal in the project directory and run the following command: **`docker-compose up`**
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+#
+
+### Method 2: Running in development mode
